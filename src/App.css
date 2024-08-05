@@ -1,12 +1,12 @@
 #root {
-  max-width: 607.5px;
+  max-width: 66.666666666vh;
   margin: 0 auto;
   text-align: center;
 }
 
 .answerField {
   width: 100%;
-  font-size: 5rem;
+  font-size: 10vh;
   text-align: center;
   border: none;
   background-color: hsl(0, 0%, 14%);
@@ -14,14 +14,56 @@
   height: 16.666666666vh;
 }
 
-.button-1-4 {
+.button-orange {
   width: 25%;
-  height: 16.66666666vh;
+  height: 15.66666666vh;
   border-radius: 9999px;
+  background-color: rgb(255, 145, 0);
+  font-size: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vh;
+  color: white;
 }
 
-.button-1-2 {
-  width: 50%;
-  height: 16.666666666vh;
+.button-dark-gray {
+  width: 25%;
+  height: 15.666666666vh;
   border-radius: 9999px;
+  background-color: #333333;
+  font-size: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vh;
+  color: white;
+}
+
+.button-light-gray {
+  width: 25%;
+  height: 15.666666666vh;
+  border-radius: 9999px;
+  background-color: #A6A6A6;
+  font-size: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vh;
+  color: white;
+}
+
+
+.button-big {
+  width: 50%;
+  height: 15.666666666vh;
+  border-radius: 9999px;
+  background-color: #333333;
+  color:white;
+  font-size: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5vh;
+  /* hover */
 }

@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -10,34 +7,34 @@ function App() {
         <div className="answerField">placeholder</div>
       </div>
       <div className="flex">
-        <button className="button-1-4">C</button>
-        <button className="button-1-4">+/-</button>
-        <button className="button-1-4">%</button>
-        <button className="bg-orange-600 button-1-4">÷</button>
+        <button className="button-light-gray">C</button>
+        <button className="button-light-gray">+/-</button>
+        <button className="button-light-gray">%</button>
+        <button className="button-orange">÷</button>
       </div>
       <div className="flex">
-        <button className="button-1-4">7</button>
-        <button className="button-1-4">8</button>
-        <button className="button-1-4">9</button>
-        <button className="bg-orange-600 button-1-4">×</button>
+        <button className="button-dark-gray">7</button>
+        <button className="button-dark-gray">8</button>
+        <button className="button-dark-gray">9</button>
+        <button className="button-orange">×</button>
       </div>
       <div className="flex">
-        <button className="button-1-4">4</button>
-        <button className="button-1-4">5</button>
-        <button className="button-1-4">6</button>
-        <button className="bg-orange-600 button-1-4">-</button>
+        <button className="button-dark-gray">4</button>
+        <button className="button-dark-gray">5</button>
+        <button className="button-dark-gray">6</button>
+        <button className="button-orange">-</button>
       </div>
       <div className="flex">
-        <button className="button-1-4">1</button>
-        <button className="button-1-4">2</button>
-        <button className="button-1-4">3</button>
-        <button className="bg-orange-600 button-1-4">+</button>
+        <button className="button-dark-gray">1</button>
+        <button className="button-dark-gray">2</button>
+        <button className="button-dark-gray">3</button>
+        <button className="button-orange">+</button>
       </div>
       <div className="flex">
-        <button className="button-1-2">0</button>
-        <button className="button-1-4">.</button>
-        <button className="bg-orange-600 button-1-4">=</button>
-      </div>
+        <button className="bg-[#333333] button-big hover:bg-[#737373]">0</button>
+        <button className="button-dark-gray">.</button>
+        <button className="button-orange">=</button>
+      </div>  
       
     </>
 
