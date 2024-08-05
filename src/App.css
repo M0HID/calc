@@ -1,0 +1,27 @@
+#root {
+  max-width: 607.5px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.answerField {
+  width: 100%;
+  font-size: 5rem;
+  text-align: center;
+  border: none;
+  background-color: hsl(0, 0%, 14%);
+  color: white;
+  height: 16.666666666vh;
+}
+
+.button-1-4 {
+  width: 25%;
+  height: 16.66666666vh;
+  border-radius: 9999px;
+}
+
+.button-1-2 {
+  width: 50%;
+  height: 16.666666666vh;
+  border-radius: 9999px;
+}
