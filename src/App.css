@@ -18,13 +18,17 @@
   width: 25%;
   height: 15.66666666vh;
   border-radius: 9999px;
-  background-color: rgb(255, 145, 0);
+  background-color: #FF9F0A;
   font-size: 7vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.5vh;
   color: white;
+}
+
+.button-orange:hover {
+  background-color: #F4C995
 }
 
 .button-dark-gray {
@@ -40,6 +44,10 @@
   color: white;
 }
 
+.button-dark-gray:hover {
+  background-color: #737373
+}
+
 .button-light-gray {
   width: 25%;
   height: 15.666666666vh;
@@ -51,6 +59,10 @@
   align-items: center;
   margin: 0.5vh;
   color: white;
+}
+
+.button-light-gray:hover {
+  background-color: #D9D9D9
 }
 
 
@@ -65,5 +77,8 @@
   justify-content: center;
   align-items: center;
   margin: 0.5vh;
-  /* hover */
+}
+
+.button-big:hover {
+  background-color: #737373;
 }
