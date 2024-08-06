@@ -20,11 +20,6 @@ function App() {
     setPlaceholderText('');
   }
   const handlePlusMinus = () => {
-    // it needs to multiply the last number in the sum by -1
-    // first find the index of the last operator then use that to find the last number
-    // then multiply that number by -1
-    // then replace the last number with the new number
-    // then update the state
     const lastOperatorIndex = placeholderText.lastIndexOf('+') > placeholderText.lastIndexOf('-') ? placeholderText.lastIndexOf('+') : placeholderText.lastIndexOf('-');
     console.log(lastOperatorIndex);
     const lastNumber = placeholderText.substring(lastOperatorIndex + 1);
