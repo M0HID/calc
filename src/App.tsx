@@ -1,14 +1,14 @@
 import './App.css';
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 function App() {
   const [placeholderText, setPlaceholderText] = useState('0');
   const [equation, setEquation] = useState('');
   const [operatorPressed, setOperatorPressed] = useState(false);
   const [activeOperator, setActiveOperator] = useState<string | null>(null);
-  const [clearState, setClearState] = useState(false);
+  const [clearState, setClearState] = useState<string|null>();
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = (value: string) => {
     if (placeholderText === 'Error') {
       setPlaceholderText(value);
     }
@@ -32,7 +32,7 @@ function App() {
     setEquation('');
     setActiveOperator(null);
     setOperatorPressed(false);
-    setClearState((prev) => !prev);
+    setClearState('AC');
   };
 
   const handlePercent = () => {
@@ -54,7 +54,7 @@ function App() {
     }
   };
 
-  const handleOperator = (operator) => {
+  const handleOperator = (operator: string) => {
     setActiveOperator(operator);
     if (operatorPressed) {
       setEquation((prev) => prev.slice(0, -1) + operator);
