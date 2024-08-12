@@ -84,7 +84,7 @@
   background-color: #737373;
 }
 
-.button-orange.operator-active {
-  background-color: #FFFFFF;
-  color: #FF9F0A;
+.operator-active {
+  background-color: white;
+  color: #FF9F0A; /* Example: Orange text */
 }
