@@ -1,6 +1,6 @@
 # React Calculator App
 
-This project is a simple calculator application built using React. The calculator supports basic arithmetic operations such as addition, subtraction, multiplication, and division, along with additional functionalities like percentage calculation and toggling between positive and negative values.
+This project is a simple calculator application built using ReactJS. The calculator supports basic arithmetic operations such as addition, subtraction, multiplication, and division, along with additional functionalities like percentage calculation and toggling between positive and negative values.
 
 ## Features
 
