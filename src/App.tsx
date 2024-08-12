@@ -3,103 +3,85 @@ import React, { useState } from 'react';
 
 function App() {
   const [placeholderText, setPlaceholderText] = useState('0');
-  const [equation, setEquation] = useState('0');
+  const [equation, setEquation] = useState('');
   const [operatorPressed, setOperatorPressed] = useState(false);
 
   const handleButtonClick = (value) => {
-    console.log('Operator pressed is ', operatorPressed);
     if (operatorPressed) {
       setPlaceholderText(value);
-      setEquation((prev) => prev + value);
       setOperatorPressed(false);
-    } else if (placeholderText.length < 10) {
-      if (placeholderText === '0' && value !== '.') {
-        setPlaceholderText(value);
-        setEquation(value);
-      } else {
-        setPlaceholderText((prev) => prev + value);
-        setEquation((prev) => prev + value);
-      }
+    } else if (placeholderText === '0') {
+      setPlaceholderText(value);
+    } else if (placeholderText === '-0') {
+      setPlaceholderText('-' + value);
+    } else {
+      setPlaceholderText((prev) => prev + value);
     }
-    console.log('placeholderText is ', placeholderText);
-    console.log('Equation is ', equation);
   };
 
   const handleClear = () => {
     setPlaceholderText('0');
-    setEquation('0');
+    setEquation('');
   };
 
   const handlePercent = () => {
     setPlaceholderText((prev) => {
       const result = parseFloat(prev) / 100;
-      const resultString = result.toString();
-      if (Math.abs(result) < 0.0000001) {
-        return '0';
-      }
-      return resultString.length <= 10 ? resultString : resultString.substring(0, 10);
+      return result.toString();
     });
   };
 
   const handleDP = () => {
     if (!placeholderText.includes('.')) {
-      const newPlaceholderText = placeholderText + '.';
-      setPlaceholderText(newPlaceholderText);
-      setEquation((prev) => prev + '.');
+      setPlaceholderText((prev) => prev + '.');
     }
   };
 
   const handleZero = () => {
     if (placeholderText !== '0') {
       setPlaceholderText((prev) => prev + '0');
-      setEquation((prev) => prev + '0');
     }
   };
 
-  const handlePlus = () => {
-    setEquation((prev) => prev + '+');
-    setOperatorPressed(true);
-  };
-
-  const handleMinus = () => {
-    setEquation((prev) => prev + '-');
-    setOperatorPressed(true);
-  };
-
-  const handleMultiply = () => {
-    setEquation((prev) => prev + '*');
-    setOperatorPressed(true);
-  };
-
-  const handleDivide = () => {
-    setEquation((prev) => prev + '/');
-    setOperatorPressed(true);
+  const handleOperator = (operator) => {
+    if (operatorPressed) {
+      setEquation((prev) => prev.slice(0, -1) + operator);
+    } else {
+      setEquation((prev) => prev + placeholderText + operator);
+      setOperatorPressed(true);
+    }
+    // Change the background and text color for the operator button
+    console.log('Operator is:', operator);
+    document.querySelectorAll('.button').forEach(button => {
+      console.log(button.textContent);
+      if (button.textContent === operator) {
+        button.classList.add('operator-active');
+      } else {
+        button.classList.remove('operator-active');
+        console.log('not found');
+      }
+    });
   };
 
   const handlePlusMinus = () => {
     setPlaceholderText((prev) => {
       if (prev !== '0') {
-        console.log('prev is ', prev);
         return (parseFloat(prev) * -1).toString();
-      } else {
-        console.log('Value of prev: ', prev);
-        return '-0';
       }
+      return '-0';
     });
   };
 
   const handleEquals = () => {
     try {
-      const replacedText = equation.replace(/÷/g, '/').replace(/×/g, '*');
-      const result = eval(replacedText);
-      const resultString = result.toString();
-      if (Math.abs(result) < 0.0000001) {
-        setPlaceholderText('0');
-      } else {
-        setPlaceholderText(resultString.length <= 10 ? resultString : resultString.substring(0, 10));
-      }
+      const finalEquation = equation + placeholderText;
+      const result = eval(finalEquation);
+      setPlaceholderText(result.toString());
+      setEquation('');
+      setOperatorPressed(false);
     } catch (error) {
       setPlaceholderText('Error');
+      setEquation('');
     }
   };
 
@@ -112,30 +94,31 @@ function App() {
         <button className="button-light-gray" onClick={handleClear}>C</button>
         <button className="button-light-gray" onClick={handlePlusMinus}>+/-</button>
         <button className="button-light-gray" onClick={handlePercent}>%</button>
-        <button className="button-orange" onClick={() => handleButtonClick('÷')}>÷</button>
+        <button className="button-orange" onClick={() => handleOperator('/')}>÷</button>
       </div>
       <div className="flex">
         <button className="button-dark-gray" onClick={() => handleButtonClick('7')}>7</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('8')}>8</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('9')}>9</button>
-        <button className="button-orange" onClick={() => handleButtonClick('×')}>×</button>
+        <button className="button-orange" onClick={() => handleOperator('*')}>×</button>
       </div>
       <div className="flex">
         <button className="button-dark-gray" onClick={() => handleButtonClick('4')}>4</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('5')}>5</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('6')}>6</button>
-        <button className="button-orange" onClick={() => handleMinus()}>-</button>
+        <button className="button-orange" onClick={() => handleOperator('-')}>-</button>
       </div>
       <div className="flex">
         <button className="button-dark-gray" onClick={() => handleButtonClick('1')}>1</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('2')}>2</button>
         <button className="button-dark-gray" onClick={() => handleButtonClick('3')}>3</button>
-        <button className="button-orange" onClick={handlePlus}>+</button>
+        <button className="button-orange" onClick={() => handleOperator('+')}>+</button>
       </div>
       <div className="flex">
         <button className="button-big" onClick={handleZero}>0</button>
         <button className="button-dark-gray" onClick={handleDP}>.</button>
         <button className="button-orange" onClick={handleEquals}>=</button>
+        <button className="button-orange" onClick={() => console.log('Equation is:', equation)}>Log</button>
       </div>  
     </>
   );

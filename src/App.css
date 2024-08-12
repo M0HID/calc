@@ -83,3 +83,8 @@
 .button-big:hover {
   background-color: #737373;
 }
+
+.button-orange.operator-active {
+  background-color: #FFFFFF;
+  color: #FF9F0A;
+}
