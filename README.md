@@ -10,3 +10,7 @@ This project is a simple calculator application built using ReactJS. The calcula
 - **Clear button**: Clear the current input or reset the calculator entirely.
 - **Decimal Points**: Handle decimal numbers with a decimal point button.
 - **Mimics the iOS calculator**: The style and functionality is similar to the built-in ios calculator!
+
+
+The calculator can be tested here!
+https://calc-two-rose.vercel.app/
